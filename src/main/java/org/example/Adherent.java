@@ -44,4 +44,10 @@ public class Adherent {
     public void setVille(String ville) {
         this.ville = ville;
     }
+
+    // Méthode pour enregistrer un emprunt
+    public void enregistrerEmprunt(Livre livre) {
+        // Code pour enregistrer l'emprunt dans une liste d'emprunts de l'adhérent,
+        System.out.println("L'adhérent " + this.nom + " " + this.prenom + " a emprunté le livre : " + livre.getTitre());
+    }
 }

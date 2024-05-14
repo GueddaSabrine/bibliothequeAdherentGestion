@@ -37,13 +37,16 @@ public class Bibliothecaire {
         this.prenom = prenom;
     }
 
-    public Adherent creerAdherent(int id, String nom, String prenom, String ville) {
-//        Adherent nouvelAdherent = new Adherent();
-//        nouvelAdherent.setId(id);
-//        nouvelAdherent.setNom(nom);
-//        nouvelAdherent.setPrenom(prenom);
-//        nouvelAdherent.setVille(ville);
-//        // Code supplémentaire pour enregistrer l'adhérent dans la base de données, par exemple
-//        return nouvelAdherent;
+    public Adherent creerAdherent(Adherent nouvelAdherent) {
+        // Code pour enregistrer l'adhérent dans la base de données
+        return nouvelAdherent;
+    }
+
+    // Méthode pour modifier un livre
+    public void modifierLivre(Livre livre, String isbn, String titre, String auteur, Livre.EtatLivre etatLivre) {
+        livre.setIsbn(isbn);
+        livre.setTitre(titre);
+        livre.setAuteur(auteur);
+        livre.setEtatLivre(etatLivre);
     }
 }
