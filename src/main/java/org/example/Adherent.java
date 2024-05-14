@@ -1,16 +1,16 @@
 package org.example;
 
-import java.util.jar.Attributes;
-
-public class Bibliothecaire {
+public class Adherent {
     private int id;
     private String nom;
     private String prenom;
+    private String ville;
 
-    public Bibliothecaire(int id, String nom, String prenom) {
+    public Adherent(int id, String nom, String prenom, String ville) {
         this.id = id;
         this.nom = nom;
         this.prenom = prenom;
+        this.ville = ville;
     }
 
     public int getId() {
@@ -37,13 +37,11 @@ public class Bibliothecaire {
         this.prenom = prenom;
     }
 
-    public Adherent creerAdherent(int id, String nom, String prenom, String ville) {
-//        Adherent nouvelAdherent = new Adherent();
-//        nouvelAdherent.setId(id);
-//        nouvelAdherent.setNom(nom);
-//        nouvelAdherent.setPrenom(prenom);
-//        nouvelAdherent.setVille(ville);
-//        // Code supplémentaire pour enregistrer l'adhérent dans la base de données, par exemple
-//        return nouvelAdherent;
+    public String getVille() {
+        return ville;
+    }
+
+    public void setVille(String ville) {
+        this.ville = ville;
     }
 }
