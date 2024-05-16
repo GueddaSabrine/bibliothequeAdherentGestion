@@ -4,6 +4,98 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gestion des Livres</title>
+
+
+
+    <style>
+        /* Style de base pour les titres h2 */
+        h2 {
+            font-size: 24px;
+            color: #333;
+            margin-bottom: 20px;
+            text-decoration: underline; /* Souligner les titres */
+            text-align: center; /* Centrer les titres */
+        }
+
+        /* Style pour les formulaires */
+        form {
+            max-width: 400px; /* Limiter la largeur des formulaires */
+            margin: 0 auto; /* Centrer les formulaires horizontalement */
+            border: 2px solid #ccc; /* Ajouter un encadré autour des formulaires */
+            padding: 20px;
+            border-radius: 8px;
+            box-sizing: border-box; /* Inclure le padding et la bordure dans la largeur */
+        }
+
+        /* Style pour les labels dans les formulaires */
+        label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        /* Style pour les champs de texte, les champs de sélection et les boutons dans les formulaires */
+        input[type="text"],
+        input[type="date"],
+        select,
+        button,
+        input[type="submit"] {
+            width: calc(100% - 22px); /* Prendre en compte la largeur du padding et de la bordure */
+            padding: 8px; /* Réduire le rembourrage */
+            margin-bottom: 10px; /* Réduire la marge inférieure */
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        /* Style pour les boutons */
+        button,
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s ease; /* Transition douce pour le changement de couleur de fond */
+        }
+
+        /* Style pour les boutons au survol */
+        button:hover,
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+
+        /* Style pour les messages d'alerte */
+        .alert {
+            padding: 15px;
+            background-color: #f44336;
+            color: white;
+            margin-bottom: 15px;
+        }
+
+        /* Style pour les titres h1 */
+        h1 {
+            font-size: 28px;
+            color: #333;
+            margin-bottom: 20px;
+            text-decoration: underline; /* Souligner les titres */
+            text-align: center; /* Centrer les titres */
+        }
+
+        /* Style pour les boutons */
+        .btn-container {
+            max-width: 400px;
+            margin: 0 auto;
+            text-align: center; /* Centrer le contenu horizontalement */
+        }
+
+        /* Style pour les boutons */
+        .btn-container button {
+            width: auto; /* Largeur automatique pour s'adapter au contenu */
+            margin: 10px; /* Ajouter un espace autour des boutons */
+        }
+    </style>
+
+
+
 </head>
 <body>
 <h2>Ajouter un Livre</h2>
@@ -25,24 +117,24 @@
     <button type="submit">Ajouter Livre</button>
 </form>
 
-<!--<h2>Modifier un Livre</h2>-->
-<!--<form id="modifierLivreForm">-->
-<!--    <label for="id">ID du Livre :</label><br>-->
-<!--    <input type="text" id="id" name="id"><br>-->
-<!--    <label for="nouvelIsbn">Nouvel ISBN :</label><br>-->
-<!--    <input type="text" id="nouvelIsbn" name="nouvelIsbn"><br>-->
-<!--    <label for="nouveauTitre">Nouveau Titre :</label><br>-->
-<!--    <input type="text" id="nouveauTitre" name="nouveauTitre"><br>-->
-<!--    <label for="nouvelAuteur">Nouvel Auteur :</label><br>-->
-<!--    <input type="text" id="nouvelAuteur" name="nouvelAuteur"><br>-->
-<!--    <label for="nouvelEtatLivre">Nouvel État du Livre :</label><br>-->
-<!--    <select id="nouvelEtatLivre" name="nouvelEtatLivre">-->
-<!--        <option value="DISPONIBLE">Disponible</option>-->
-<!--        <option value="EMPRUNTE">Emprunté</option>-->
-<!--        <option value="PERDU">Perdu</option>-->
-<!--    </select><br>-->
-<!--    <button type="submit">Modifier Livre</button>-->
-<!--</form>-->
+<h2>Modifier un Livre</h2>
+<form id="modifierLivreForm">
+    <label for="id">ID du Livre :</label><br>
+    <input type="text" id="id" name="id"><br>
+    <label for="nouvelIsbn">Nouvel ISBN :</label><br>
+    <input type="text" id="nouvelIsbn" name="nouvelIsbn"><br>
+    <label for="nouveauTitre">Nouveau Titre :</label><br>
+    <input type="text" id="nouveauTitre" name="nouveauTitre"><br>
+    <label for="nouvelAuteur">Nouvel Auteur :</label><br>
+    <input type="text" id="nouvelAuteur" name="nouvelAuteur"><br>
+    <label for="nouvelEtatLivre">Nouvel État du Livre :</label><br>
+    <select id="nouvelEtatLivre" name="nouvelEtatLivre">
+        <option value="DISPONIBLE">Disponible</option>
+        <option value="EMPRUNTE">Emprunté</option>
+        <option value="PERDU">Perdu</option>
+    </select><br>
+    <button type="submit">Modifier Livre</button>
+</form>
 
 <h2>Afficher les Informations d'un Livre</h2>
 <form id="afficherLivreForm">
@@ -60,14 +152,14 @@
 </form>
 <div id="resultatVerification"></div>
 
-<!--<h2>Créer un Adhérent</h2>-->
-<!--<form id="creerAdherentForm">-->
-<!--    <label for="nomAdherent">Nom :</label><br>-->
-<!--    <input type="text" id="nomAdherent" name="nomAdherent"><br>-->
-<!--    <label for="prenomAdherent">Prénom :</label><br>-->
-<!--    <input type="text" id="prenomAdherent" name="prenomAdherent"><br>-->
-<!--    <button type="submit">Créer Adhérent</button>-->
-<!--</form>-->
+<h2>Créer un Adhérent</h2>
+<form id="creerAdherentForm">
+    <label for="nomAdherent">Nom :</label><br>
+    <input type="text" id="nomAdherent" name="nomAdherent"><br>
+    <label for="prenomAdherent">Prénom :</label><br>
+    <input type="text" id="prenomAdherent" name="prenomAdherent"><br>
+    <button type="submit">Créer Adhérent</button>
+</form>
 
 <h2>Modifier un Adhérent</h2>
 <form id="modifierAdherentForm">
@@ -80,25 +172,6 @@
     <label for="nouveauPrenom">Nouveau Prénom :</label><br>
     <input type="text" id="nouveauPrenom" name="nouveauPrenom"><br>
     <button type="submit">Modifier Adhérent</button>
-</form>
-
-<h2>Modifier un Livre</h2>
-<form id="modifierLivreForm">
-    <label for="isbnLivre">ISBN du Livre :</label><br>
-    <input type="text" id="isbnLivre" name="isbnLivre"><br>
-    <label for="nouvelIsbn">Nouvel ISBN :</label><br>
-    <input type="text" id="nouvelIsbn" name="nouvelIsbn"><br>
-    <label for="nouveauTitre">Nouveau Titre :</label><br>
-    <input type="text" id="nouveauTitre" name="nouveauTitre"><br>
-    <label for="nouvelAuteur">Nouvel Auteur :</label><br>
-    <input type="text" id="nouvelAuteur" name="nouvelAuteur"><br>
-    <label for="nouvelEtatLivre">Nouvel État du Livre :</label><br>
-    <select id="nouvelEtatLivre" name="nouvelEtatLivre">
-        <option value="DISPONIBLE">Disponible</option>
-        <option value="EMPRUNTE">Emprunté</option>
-        <option value="PERDU">Perdu</option>
-    </select><br>
-    <button type="submit">Modifier Livre</button>
 </form>
 
 <h2>Ajouter un Nouveau Livre</h2>
@@ -121,15 +194,6 @@
 </form>
 
 <h1>Adherent Interface</h1>
-
-<!--&lt;!&ndash; Form to register a new emprunt &ndash;&gt;-->
-<!--<h2>Enregistrer un Emprunt</h2>-->
-<!--<form id="enregistrerEmpruntForm">-->
-<!--    <label for="titreLivre">Titre du Livre:</label><br>-->
-<!--    <input type="text" id="titreLivre" name="titreLivre"><br>-->
-<!--    <input type="submit" value="Enregistrer Emprunt">-->
-<!--</form>-->
-
 <!-- Form to search for a livre -->
 <h2>Rechercher un Livre</h2>
 <form id="rechercherLivreForm">
@@ -149,8 +213,6 @@
 </form>
 
 <h1>Emprunt Interface</h1>
-
-<!-- Form to register a new emprunt -->
 <h2>Enregistrer un Emprunt</h2>
 <form id="enregistrerEmpruntForm">
     <label for="dateEmprunt">Date d'Emprunt:</label><br>
@@ -159,26 +221,27 @@
     <input type="date" id="dateRetour" name="dateRetour"><br>
     <label for="titreLivre">Titre du Livre:</label><br>
     <input type="text" id="titreLivre" name="titreLivre"><br>
-    <label for="nomAdherent">Nom de l'Adherent:</label><br>
-    <input type="text" id="nomAdherent" name="nomAdherent"><br>
+    <label for="nomAdherentEmprunt">Nom de l'Adherent:</label><br>
+    <input type="text" id="nomAdherentEmprunt" name="nomAdherentEmprunt"><br>
     <input type="submit" value="Enregistrer Emprunt">
 </form>
 
-<!-- Button to register the return of a livre -->
-<h2>Enregistrer le Retour d'un Livre</h2>
-<button id="enregistrerRetourBtn">Enregistrer Retour</button>
 
-<!-- Button to register the date of emprunt of a livre -->
-<h2>Enregistrer la Date d'Emprunt d'un Livre</h2>
-<button id="enregistrerDateEmpruntBtn">Enregistrer Date d'Emprunt</button>
+<div class="btn-container">
+    <!-- Button to register the return of a livre -->
+    <h2>Enregistrer le Retour d'un Livre</h2>
+    <button id="enregistrerRetourBtn">Enregistrer Retour</button>
 
+    <!-- Button to register the date of emprunt of a livre -->
+    <h2>Enregistrer la Date d'Emprunt d'un Livre</h2>
+    <button id="enregistrerDateEmpruntBtn">Enregistrer Date d'Emprunt</button>
+</div>
 
 <script>
     function afficherLivre() {
         var id = document.getElementById("idAffichage").value;
         // Envoyer une requête AJAX pour récupérer les informations du livre avec l'ID spécifié
         // et les afficher dans la div "informationsLivre"
-        // Exemple :
         fetch("/afficherLivre?id=" + id)
             .then(response => response.json())
             .then(data => {
@@ -191,7 +254,7 @@
         var id = document.getElementById("idVerification").value;
         // Envoyer une requête AJAX pour vérifier la disponibilité du livre avec l'ID spécifié
         // et afficher le résultat dans la div "resultatVerification"
-        // Exemple :
+        //
         fetch("/verifierDisponibilite?id=" + id)
             .then(response => response.text())
             .then(data => {
