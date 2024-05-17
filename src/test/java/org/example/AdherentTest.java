@@ -1,5 +1,8 @@
 package org.example;
 
+import org.example.model.Adherent;
+import org.example.model.Categorie;
+import org.example.model.Livre;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 

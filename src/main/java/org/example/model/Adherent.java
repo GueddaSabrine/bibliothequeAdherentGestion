@@ -1,4 +1,6 @@
-package org.example;
+package org.example.model;
+
+import org.apache.http.annotation.Contract;
 
 import java.util.List;
 
@@ -9,7 +11,16 @@ public class Adherent {
     private String ville;
     private String codeAdherent;
 
+
     public Adherent(int id, String nom, String prenom, String ville, String codeAdherent) {
+        this.id = id;
+        this.nom = nom;
+        this.prenom = prenom;
+        this.ville = ville;
+        this.codeAdherent = codeAdherent;
+    }
+
+    public Adherent() {
         this.id = id;
         this.nom = nom;
         this.prenom = prenom;
