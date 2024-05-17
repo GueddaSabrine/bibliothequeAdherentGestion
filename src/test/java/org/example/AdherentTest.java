@@ -20,23 +20,6 @@ class AdherentTest {
     }
 
     @Test
-    public void testCreerAdherent() {
-        assertEquals(1, adherent.getId());
-        assertEquals("Doe", adherent.getNom());
-        assertEquals("John", adherent.getPrenom());
-        assertEquals("Ville", adherent.getVille());
-        assertEquals("001", adherent.getCodeAdherent());
-    }
-
-    @Test
-    public void testModifierAdherent() {
-        adherent.setNom("Smith");
-        adherent.setPrenom("Jane");
-        assertEquals("Smith", adherent.getNom());
-        assertEquals("Jane", adherent.getPrenom());
-    }
-
-    @Test
     public void testEnregistrerEmprunt() {
         Livre livre = new Livre(1, "9781234567890", "Livre 1", "Auteur 1", Livre.EtatLivre.DISPONIBLE, new Categorie(1, "Roman"));
         adherent.enregistrerEmprunt(livre);

@@ -38,24 +38,20 @@ class BibliothecaireTest {
     }
 
     @Test
-    public void testCreerAdherent() {
-        Adherent nouvelAdherent = new Adherent(1, "Adherent", "Nouveau", "Ville", "001");
-        Adherent adh = bibliothecaire.creerAdherent(nouvelAdherent);
-        assertEquals(nouvelAdherent, adh);
-    }
-
-    @Test
-    public void testModifierAdherent() {
-        Adherent adherent = new Adherent(1, "Adherent", "Ancien", "Ville", "001");
-        bibliothecaire.modifierAdherent(adherent, "Adherent", "Nouveau");
-        assertEquals("Nouveau", adherent.getPrenom());
-    }
-
-    @Test
-    public void testAjouterNouveauLivre() {
+    public void testAjouterNouveauLivre_CategorieValide() {
         Livre livre = new Livre(3, "9781234567892", "Nouveau Livre", "Auteur 3", Livre.EtatLivre.DISPONIBLE, new Categorie(1, "Roman"));
         bibliothecaire.ajouterNouveauLivre(listeLivres, livre);
         assertEquals(3, listeLivres.size());
+        assertTrue(listeLivres.contains(livre));
+        System.out.println("Test ajout nouveau livre avec catégorie valide réussi.");
+    }
+
+    @Test
+    public void testAjouterNouveauLivre_CategorieNonValide() {
+        Livre livre = new Livre(3, "9781234567892", "Nouveau Livre", "Auteur 3", Livre.EtatLivre.DISPONIBLE, new Categorie(0, ""));
+        bibliothecaire.ajouterNouveauLivre(listeLivres, livre);
+        assertEquals(2, listeLivres.size());
+        System.out.println("Test ajout nouveau livre avec catégorie non valide réussi.");
     }
 
     @Test
@@ -65,6 +61,27 @@ class BibliothecaireTest {
         assertEquals("Nouveau Titre", livre.getTitre());
         assertEquals("Nouvel Auteur", livre.getAuteur());
         assertEquals(Livre.EtatLivre.PERDU, livre.getEtatLivre());
+        System.out.println("Test modification livre réussi.");
+    }
+
+    @Test
+    public void testCreerAdherent_InformationsCorrectes() {
+        Adherent adherent = new Adherent(1, "Doe", "John", "Ville", "001");
+        assertEquals(1, adherent.getId());
+        assertEquals("Doe", adherent.getNom());
+        assertEquals("John", adherent.getPrenom());
+        assertEquals("Ville", adherent.getVille());
+        assertEquals("001", adherent.getCodeAdherent());
+        System.out.println("Test création adhérent avec informations correctes réussi.");
+    }
+
+    @Test
+    public void testModifierAdherent() {
+        Adherent adherent = new Adherent(1, "Doe", "John", "Ville", "001");
+        bibliothecaire.modifierAdherent(adherent, "Smith", "Jane");
+        assertEquals("Smith", adherent.getNom());
+        assertEquals("Jane", adherent.getPrenom());
+        System.out.println("Test modification adhérent réussi.");
     }
 
     @Test
@@ -72,6 +89,15 @@ class BibliothecaireTest {
         Adherent adherent = new Adherent(1, "Adherent", "Nom", "Ville", "001");
         Livre livre = new Livre(1, "9781234567890", "Livre 1", "Auteur 1", Livre.EtatLivre.DISPONIBLE, new Categorie(1, "Roman"));
         adherent.enregistrerEmprunt(livre);
+        System.out.println("Test enregistrement emprunt réussi.");
+    }
+
+    @Test
+    public void testCreerAdherent_InformationsManquantes() {
+        // Création d'un adhérent avec une information manquante
+        Adherent adherent = new Adherent(1, "Doe", "", "Ville", "001");
+        assertNotNull(bibliothecaire.creerAdherent(adherent));
+        System.out.println("Test création adhérent avec informations manquantes réussi.");
     }
 
 

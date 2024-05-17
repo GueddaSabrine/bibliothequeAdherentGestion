@@ -99,10 +99,15 @@ public class Livre {
         System.out.println("Categorie : " + categorie);
     }
 
-    // Méthode pour vérifier la disponibilité du livre
-    public boolean estDisponible() {
-        System.out.println("Vérification de la disponibilité du livre : ");
-        return etatLivre.equals(EtatLivre.DISPONIBLE);
+    public boolean etatLivre() {
+        if (etatLivre == null) {
+            System.out.println("L'état du livre est null, impossible de vérifier la disponibilité.");
+            return false;
+        }
+
+        boolean disponible = etatLivre.equals(EtatLivre.DISPONIBLE);
+        System.out.println("Le livre " + (disponible ? "est" : "n'est pas") + " disponible.");
+        return disponible;
     }
 }
 
