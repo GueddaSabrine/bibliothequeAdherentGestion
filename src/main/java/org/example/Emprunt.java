@@ -61,7 +61,6 @@ public class Emprunt {
     public static Emprunt enregistrerEmprunt(int id, Date dateEmprunt, Date dateRetour, Livre livre, Adherent adherent) {
         return new Emprunt(id, dateRetour, dateEmprunt, livre, adherent);
     }
-
     // Méthode pour enregistrer le retour d'un livre
     public void enregistrerRetour() {
         if (getDateEmprunt() == null) {

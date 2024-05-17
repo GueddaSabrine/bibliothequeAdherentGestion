@@ -7,12 +7,17 @@ public class Bibliothecaire {
     private String nom;
     private String prenom;
 
+    /**
+     *
+     * @param id
+     * @param nom
+     * @param prenom
+     */
     public Bibliothecaire(int id, String nom, String prenom) {
         this.id = id;
         this.nom = nom;
         this.prenom = prenom;
     }
-
     public int getId() {
         return id;
     }
@@ -37,12 +42,23 @@ public class Bibliothecaire {
         this.prenom = prenom;
     }
 
+    /**
+     *
+     * @param nouvelAdherent
+     * @return
+     */
     public Adherent creerAdherent(Adherent nouvelAdherent) {
         // Code pour enregistrer l'adhérent dans la base de données
         System.out.println("Nouvel adhérent créé : " + nouvelAdherent.getNom() + " " + nouvelAdherent.getPrenom());
         return nouvelAdherent;
     }
 
+    /**
+     *
+     * @param adherent
+     * @param nom
+     * @param prenom
+     */
     // Méthode pour modifier un adhérent
     public void modifierAdherent(Adherent adherent, String nom, String prenom) {
         adherent.setNom(nom);
@@ -50,6 +66,14 @@ public class Bibliothecaire {
         System.out.println("Adhérent " + adherent.getNom() + " " + adherent.getPrenom() + " modifié.");
     }
 
+    /**
+     *
+     * @param livre
+     * @param isbn
+     * @param titre
+     * @param auteur
+     * @param etatLivre
+     */
     // Méthode pour modifier un livre
     public void modifierLivre(Livre livre, String isbn, String titre, String auteur, Livre.EtatLivre etatLivre) {
         livre.setIsbn(isbn);
@@ -59,6 +83,11 @@ public class Bibliothecaire {
         System.out.println("Livre " + livre.getTitre() + " modifié.");
     }
 
+    /**
+     *
+     * @param listeLivres
+     * @param livre
+     */
     // Méthode pour ajouter un nouveau livre
     public void ajouterNouveauLivre(List<Livre> listeLivres, Livre livre) {
         if (livre.getCategorie().estLibelleValide()) { // Utilisation de la méthode estLibelleValide pour valider la catégorie

@@ -52,17 +52,26 @@ public class Adherent {
     public String getCodeAdherent() {
         return codeAdherent;
     }
-
     public void setCodeAdherent(String codeAdherent) {
         this.codeAdherent = codeAdherent;
     }
 
+    /**
+     *
+     * @param livre
+     */
     // Méthode pour enregistrer un emprunt
     public void enregistrerEmprunt(Livre livre) {
         // Code pour enregistrer l'emprunt dans une liste d'emprunts de l'adhérent
         System.out.println("L'adhérent " + this.nom + " " + this.prenom + " (Code : " + this.codeAdherent + ") a emprunté le livre : " + livre.getTitre());
     }
 
+    /**
+     *
+     * @param listeLivres
+     * @param titre
+     * @return
+     */
     // Méthode pour rechercher un livre
     public Livre rechercherLivre(List<Livre> listeLivres, String titre) {
         for (Livre livre : listeLivres) {

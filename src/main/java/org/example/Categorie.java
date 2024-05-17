@@ -6,6 +6,11 @@ public class Categorie {
     private int id;
     private String libelle;
 
+    /**
+     *
+     * @param id
+     * @param libelle
+     */
     public Categorie(int id, String libelle) {
         this.id = id;
         this.libelle = libelle;
@@ -27,6 +32,11 @@ public class Categorie {
         this.libelle = libelle;
     }
 
+    /**
+     *
+     * @param obj
+     * @return
+     */
     @Override
     public boolean equals(Object obj) {
         if (this == obj) return true;
@@ -35,12 +45,18 @@ public class Categorie {
         return Objects.equals(libelle, categorie.libelle);
     }
 
-
+    /**
+     *
+     */
     // Méthode pour afficher le libellé
     public void afficherLibelle() {
         System.out.println("Libellé de la catégorie : " + libelle);
     }
 
+    /**
+     *
+     * @return
+     */
     // Méthode pour valider le libellé d'une catégorie
     public boolean estLibelleValide() {
         String[] categoriesValides = {"dictionnaire", "roman", "nouvelle", "poème"};
