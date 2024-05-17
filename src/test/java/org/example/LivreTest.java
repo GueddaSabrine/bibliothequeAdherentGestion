@@ -1,5 +1,7 @@
 package org.example;
 
+import org.example.model.Categorie;
+import org.example.model.Livre;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
