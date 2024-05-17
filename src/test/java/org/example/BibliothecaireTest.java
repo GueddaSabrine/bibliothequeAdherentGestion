@@ -1,5 +1,9 @@
 package org.example;
 
+import org.example.model.Adherent;
+import org.example.model.Bibliothecaire;
+import org.example.model.Categorie;
+import org.example.model.Livre;
 import org.junit.jupiter.api.*;
 
 import java.util.ArrayList;
