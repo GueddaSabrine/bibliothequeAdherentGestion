@@ -23,8 +23,6 @@ class AdherentTest {
     public void testEnregistrerEmprunt() {
         Livre livre = new Livre(1, "9781234567890", "Livre 1", "Auteur 1", Livre.EtatLivre.DISPONIBLE, new Categorie(1, "Roman"));
         adherent.enregistrerEmprunt(livre);
-        // Vérifier la sortie console ou vérifier le logiciel de gestion des emprunts si disponible
-        // C'est difficile à tester directement dans un test unitaire sans modifier la méthode enregistrerEmprunt()
     }
 
     @Test

@@ -99,7 +99,7 @@
 </head>
 <body>
 <h2>Ajouter un Livre</h2>
-<form id="ajouterLivreForm">
+<form id="ajouterLivreForm" method="post">
     <label for="isbn">ISBN :</label><br>
     <input type="text" id="isbn" name="isbn"><br>
     <label for="titre">Titre :</label><br>
