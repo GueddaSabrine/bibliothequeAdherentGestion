@@ -1,6 +1,12 @@
 package org.example;
 
+import org.example.model.Categorie;
+import org.example.model.Livre;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
