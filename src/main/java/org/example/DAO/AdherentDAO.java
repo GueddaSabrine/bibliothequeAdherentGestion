@@ -6,12 +6,24 @@ import java.util.Properties;
 
 import org.example.model.Adherent;
 
+/**
+ * Classe AdherentDAO permettant d'interagir avec la base de données SQLite pour les opérations CRUD sur les adhérents.
+ */
 public class AdherentDAO {
+
+    /**
+     * Obtient une connexion à la base de données.
+     *
+     * @return une connexion à la base de données
+     * @throws SQLException si une erreur survient lors de la connexion
+     */
     public static Connection getConnection() throws SQLException {
         return DriverManager.getConnection(url);
     }
 
-    // Method to test the connection
+    /**
+     * Méthode pour tester la connexion à la base de données.
+     */
     public static void testConnection() {
         try (Connection conn = getConnection()) {
             if (conn != null) {
@@ -23,8 +35,15 @@ public class AdherentDAO {
             System.out.println("Failed to establish connection: " + e.getMessage());
         }
     }
+
+    /**
+     * URL de la base de données.
+     */
     public static String url;
 
+    /**
+     * Constructeur de la classe AdherentDAO. Initialise la connexion à la base de données et crée la table des adhérents si elle n'existe pas.
+     */
     public AdherentDAO() {
         try {
             Properties properties = new Properties();
@@ -46,6 +65,11 @@ public class AdherentDAO {
         }
     }
 
+    /**
+     * Crée un nouvel adhérent dans la base de données.
+     *
+     * @param adherent l'adhérent à créer
+     */
     public void createAdherent(Adherent adherent) {
         String sql = "INSERT INTO adherent (nom, prenom, ville, codeAdherent) VALUES (?,?,?,?)";
         try (Connection conn = getConnection();
@@ -60,6 +84,12 @@ public class AdherentDAO {
         }
     }
 
+    /**
+     * Récupère un adhérent à partir de son identifiant.
+     *
+     * @param id l'identifiant de l'adhérent
+     * @return l'adhérent correspondant à l'identifiant ou null s'il n'est pas trouvé
+     */
     public Adherent getAdherentById(int id) {
         String sql = "SELECT * FROM adherent WHERE ID = ?";
         Adherent adherent = null;
@@ -81,6 +111,11 @@ public class AdherentDAO {
         return adherent;
     }
 
+    /**
+     * Récupère tous les adhérents de la base de données.
+     *
+     * @return une liste de tous les adhérents
+     */
     public List<Adherent> getAllAdherents() {
         String sql = "SELECT * FROM ADHERENT";
         List<Adherent> adherents = new ArrayList<>();
@@ -102,20 +137,31 @@ public class AdherentDAO {
         return adherents;
     }
 
+    /**
+     * Met à jour les informations d'un adhérent dans la base de données.
+     *
+     * @param adherent l'adhérent à mettre à jour
+     */
     public void updateAdherent(Adherent adherent) {
-        String sql = "UPDATE adherent SET nom = ?, prenom = ?, codeAdherent = ? WHERE ID = ?";
+        String sql = "UPDATE adherent SET nom = ?, prenom = ?, ville = ?, codeAdherent = ? WHERE ID = ?";
         try (Connection conn = getConnection();
              PreparedStatement stmt = conn.prepareStatement(sql)) {
             stmt.setString(1, adherent.getNom());
             stmt.setString(2, adherent.getPrenom());
             stmt.setString(3, adherent.getVille());
             stmt.setString(4, adherent.getCodeAdherent());
+            stmt.setInt(5, adherent.getId());
             stmt.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
         }
     }
 
+    /**
+     * Supprime un adhérent de la base de données.
+     *
+     * @param id l'identifiant de l'adhérent à supprimer
+     */
     public void deleteAdherent(int id) {
         String sql = "DELETE FROM adherent WHERE ID = ?";
         try (Connection conn = getConnection();

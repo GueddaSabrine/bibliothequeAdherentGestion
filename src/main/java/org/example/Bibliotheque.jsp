@@ -5,8 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gestion des Livres</title>
 
-
-
     <style>
         /* Style de base pour les titres h2 */
         h2 {
@@ -93,10 +91,11 @@
             margin: 10px; /* Ajouter un espace autour des boutons */
         }
     </style>
-
-
-
 </head>
+/**
+* Cette classe représente une interface utilisateur pour gérer les livres, les adhérents et les emprunts.
+* Elle utilise HTML pour la structure de la page et JavaScript pour gérer les interactions avec l'utilisateur.
+*/
 <body>
 <h2>Ajouter un Livre</h2>
 <form id="ajouterLivreForm" method="post">
@@ -238,10 +237,13 @@
 </div>
 
 <script>
+    /**
+     * Cette méthode est appelée lorsqu'on clique sur le bouton pour afficher les informations d'un livre.
+     * Elle récupère l'ID du livre à afficher et envoie une requête AJAX pour récupérer les informations du livre.
+     * Les informations du livre sont ensuite affichées dans la page.
+     */
     function afficherLivre() {
         var id = document.getElementById("idAffichage").value;
-        // Envoyer une requête AJAX pour récupérer les informations du livre avec l'ID spécifié
-        // et les afficher dans la div "informationsLivre"
         fetch("/afficherLivre?id=" + id)
             .then(response => response.json())
             .then(data => {
@@ -250,11 +252,13 @@
             .catch(error => console.error("Erreur :", error));
     }
 
+    /**
+     * Cette méthode est appelée lorsqu'on clique sur le bouton pour vérifier la disponibilité d'un livre.
+     * Elle récupère l'ID du livre à vérifier et envoie une requête AJAX pour vérifier sa disponibilité.
+     * Le résultat de la vérification est affiché dans la page.
+     */
     function verifierDisponibilite() {
         var id = document.getElementById("idVerification").value;
-        // Envoyer une requête AJAX pour vérifier la disponibilité du livre avec l'ID spécifié
-        // et afficher le résultat dans la div "resultatVerification"
-        //
         fetch("/verifierDisponibilite?id=" + id)
             .then(response => response.text())
             .then(data => {
@@ -301,9 +305,13 @@
             ajouterNouveauLivre(isbnNouveauLivre, titreNouveauLivre, auteurNouveauLivre, etatNouveauLivre, categorieNouveauLivre);
         });
 
+        /**
+         * Cette méthode est appelée lorsqu'on soumet le formulaire pour créer un nouvel adhérent.
+         * Elle récupère le nom et le prénom de l'adhérent à créer et envoie une requête AJAX pour l'ajouter à la base de données.
+         * Une alerte est affichée pour indiquer si l'opération a réussi ou échoué.
+         */
         // Function to create an adherent
         function creerAdherent(nom, prenom) {
-            // Send AJAX request to create a new adherent
             var xhr = new XMLHttpRequest();
             xhr.open("POST", "/creerAdherent", true);
             xhr.setRequestHeader("Content-Type", "application/json");
